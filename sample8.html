@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+   	 <head>
+        	<title>DEMO PROGRAM ON USING ng-show DIRECTIVE</title>
+<script type="text/javascript" src="https:\\ajax.googleapis.com\ajax\libs\angularjs\1.8.2\angular.min.js">
+        	</script>
+        	<script> 
+        		var app=angular.module("myApp",[]); 
+            	app.controller("myCntrl",function($scope){
+               	$scope.display=true; 
+            });        
+        </script>
+    </head>
+    <body ng-app="myApp"> 
+        <div ng-controller="myCntrl">
+            <li ng-show="display">BIT CSE</li>
+        </div>
+    </body>
+    </html>

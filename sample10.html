@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ng-blur</title>
+        <script type="text/javascript" src="https:\\ajax.googleapis.com\ajax\libs\angularjs\1.8.2\angular.min.js">
+        </script>
+        
+    </head>
+    <body ng-app=""> 
+        Keep Focus and Keep losing focus from me to get the action done:<input type="text" ng-model="name" ng-init="count=0" ng-blur="count=count+1">
+        <br/>
+        {{count}}
+    </body>
+    </html>

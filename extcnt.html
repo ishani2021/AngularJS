@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+ <head>  <title>DEMO ON WRITING THE EXTERNAL CONTROLLER </title>
+        <script type="text/javascript" src="https:\\ajax.googleapis.com\ajax\libs\angularjs\1.8.2\angular.min.js">
+        </script>
+        <script src="stud.js"></script>
+    </head>
+    <body ng-app="myApp"> 
+        <h1>STUDENT LIST</h1>
+        <div ng-controller="myCntrl">
+         <table border="1">
+                <tr>
+                    <th>USN</th>                     <th>NAME</th>
+                    <th>DEPT</th>                    <th>SEM</th>
+                    <th>MARKS</th>
+                </tr>
+                <tr ng-repeat="stu in studlist">
+                    <td>{{stu.USN}}</td>                    <td>{{stu.NAME}}</td>
+                    <td>{{stu.DEPT}}</td>                  <td>{{stu.SEMESTER}}</td>
+                    <td>{{stu.MARKS}}</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+    </html>

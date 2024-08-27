@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LAB7 PROGRAM</title>
+  <script type="text/javascript" src="https:\\ajax.googleapis.com\ajax\libs\angularjs\1.8.2\angular.min.js">
+        </script>
+        <script> 
+        var app=angular.module("myApp",[]);             
+        app.controller("myCntrl",function($scope)
+        {
+               $scope.users=[
+{"name":"Prof. N. Thanuja","email":"thanu.anu21@gmail.com","editing":false},
+                        {"name":"Prof. Anu","email":"anu22@gmail.com","editing":false},
+                        {"name":"Prof. Janutha","email":"janutha@gmail.com","editing":false}]
+                            
+                $scope.createuser=function()
+                {
+                    if($scope.newusername && $scope.newuseremail)
+                    {
+                        var u={
+                            'name':$scope.newusername,
+                            'email':$scope.newuseremail,
+                            'editing':false
+                            }
+                        $scope.users.push(u)
+                        $scope.newusername=' '
+                        $scope.newuseremail=' '
+                    }
+                    else
+                        alert("Please provide the User Name and Email id")
+                }
+
+                $scope.readuser=function(user)
+                {
+                    user.editing=true
+                }
+
+                $scope.updateuser=function(user)
+                {
+                    user.editing=false 
+                }
+
+                $scope.deleteuser=function(user)
+                {
+                    var confirm=prompt("Are you sure you want to delete")
+                    if(confirm=="Yes")
+                    {
+                        var index=$scope.users.indexOf(user)
+                        $scope.users.splice(index,1)
+                    }
+                }
+            });        
+        </script>
+    </head>
+    <body ng-app="myApp"> 
+        <h1>USER MANAGEMENT APPLICATION</h1>
+        <div ng-controller="myCntrl">
+           Enter the User Name:<input type="text" ng-model="newusername" />
+           Enter the User Email:<input type="email" ng-model="newuseremail" />
+           <button ng-click="createuser()">CREATE</button><br />
+            <ul>
+                <li ng-repeat="user in users">
+<span ng-show="!user.editing">{{user.name}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" ng-show="user.editing" ng-model="user.name" />
+<span ng-show="!user.editing">{{user.email}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" ng-show="user.editing" ng-model="user.email" />
+                    <button ng-click="readuser(user)">READ</button>
+                    <button ng-click="updateuser(user)">UPDATE</button>
+                    <button ng-click="deleteuser(user)">DELETE</button>
+                    <br />
+                </li>
+            </ul>
+        </div>
+    </body>
+    </html>

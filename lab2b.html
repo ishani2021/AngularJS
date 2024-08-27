@@ -1,0 +1,74 @@
+<!DOCTYPE html> 
+    <html> 
+        <head> 
+            <title> Shopping Items Application </title> 
+            <script type="text/javascript" 
+                src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"> 
+            </script> 
+            <script> 
+                var app=angular.module("myApp",[]); 
+                app.controller("myCntrl",function($scope)
+                    { 
+                    $scope.shoppingItems=['Apple','Mango','Banana','Grapes'] 
+
+                    $scope.addItem=function()
+                    { 
+                        if($scope.newItem && $scope.shoppingItems.indexOf($scope.newItem)==-1) 
+                        { 
+                            $scope.shoppingItems.push($scope.newItem) 
+                            $scope.newItem="" 
+                        } 
+                        else 
+                        { 
+                            if($scope.newItem) 
+                                alert("This item is already there in the shopping list") 
+                            else 
+                                alert("Please enter an item to add") 
+                        } 
+                    } 
+
+                    $scope.removeItem=function()
+                    { 
+                        //console.log("function called") 
+                        if($scope.shoppingItems.indexOf($scope.selectItem)==-1) 
+                        { 
+                            alert("Please select an item to remove") 
+                        } 
+                        else
+                        { 
+                            var index=$scope.shoppingItems.indexOf($scope.selectItem) 
+                            $scope.shoppingItems.splice(index,1) 
+                            $scope.selectItem="" 
+                        } 
+                    } 
+                }); 
+            </script>
+        </head> 
+        <body ng-app="myApp"> 
+            <div ng-controller="myCntrl"> 
+                <h2>Shopping Application</h2> 
+                <h4>List of Shopping Items</h4> 
+                    <table border="1"> 
+                        <tr> 
+                            <th>Sl. No.</th> 
+                            <th>Item</th> 
+                        </tr> 
+                        <tr ng-repeat="items in shoppingItems"> 
+                            <td align="center">{{$index+1}}</td> 
+                            <td>{{items}}</td> 
+                        </tr> 
+                    </table> 
+                <br/> 
+                <div> 
+                    Enter an Item to Add: <input type="text" ng-model="newItem"> 
+                    <button ng-click="addItem()">Add Item</button> 
+                </div> 
+                <div> 
+                    Select an Item to Remove: 
+                    <select ng-model="selectItem" ng-options="item for item in shoppingItems"></select> 
+                    <button ng-click="removeItem()">Remove Item</button> 
+                </div> 
+            </div> 
+        </body>
+    </html>
+

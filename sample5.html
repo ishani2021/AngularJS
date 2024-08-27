@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ng-options</title>
+        <script type="text/javascript" src="https:\\ajax.googleapis.com\ajax\libs\angularjs\1.8.2\angular.min.js">
+        </script>
+        <script>
+            var app=angular.module("myApp",[]); 
+            app.controller("myCntrl",function($scope){
+                $scope.mylist=['Apple', 'Mango', 'Orange', 'Grapes']
+            });
+        </script>
+    </head>
+    <body ng-app="myApp"> 
+        <div ng-controller="myCntrl">
+            List of Fruits:<select ng-model="selectFruit" ng-options="fruit for fruit in mylist"></select>
+        </div>
+    </body>
+    </html>

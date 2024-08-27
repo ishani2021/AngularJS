@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ng-repeat</title>
+<script type="text/javascript" src="https:\\ajax.googleapis.com\ajax\libs\angularjs\1.8.2\angular.min.js">
+        </script>
+        <script>
+            var app=angular.module("myApp",[]); 
+            app.controller("myCntrl",function($scope){
+                $scope.mylist=['Cow','Lion','Tiger','Deer']
+             });
+        </script>
+    </head>
+    <body ng-app="myApp"> 
+        <div ng-controller="myCntrl">
+            <ul>
+                <li ng-repeat="animal in mylist">{{animal}}</li>
+            </ul>
+        </div>
+    </body>
+    </html>

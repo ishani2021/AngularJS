@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LAB12 PROGRAM</title>
+        <script type="text/javascript" src="https:\\ajax.googleapis.com\ajax\libs\angularjs\1.8.2\angular.min.js">
+        </script>
+        <script> 
+        var app=angular.module("myApp",[]); 
+        app.controller("myCntrl",function($scope)
+        {
+            $scope.curdate=new Date();
+        });
+        </script>
+    </head>
+    <body ng-app="myApp"> 
+        <h1>DATE IN DIFFERENT FORMATS</h1>
+        <div ng-controller="myCntrl">
+            Current Date and Time: {{curdate}}<br /><br />
+            
+            Short Date:{{curdate|date:'short'}}<br /><br />
+            Medium Date:{{curdate|date:'medium'}}<br /><br />
+            Long Date:{{curdate|date:'longDate'}}<br /><br />
+            
+            Short:{{curdate | date:'short'}}<br /><br />
+            Medium:{{curdate | date:'medium'}}<br /><br />
+            Full Date:{{curdate | date:'fullDate'}}<br /><br />
+
+            Short Time:{{curdate | date:'shortTime'}}<br /><br />
+            Medium Time:{{curdate | date:'mediumTime'}}<br /><br />
+            
+            Today: {{curdate|date:'dd.MMMM.yyyy'}}<br /><br />
+            Today-1: {{curdate|date:'dd.MMM.yy'}}<br /><br />
+            Today-2: {{curdate|date:'dd.MM.y'}}<br /><br />
+            Today-3: {{curdate|date:'d.M.y'}}<br /><br />
+            Today-4: {{curdate|date:'d.MM.y-hh.mm.ss'}}<br /><br />
+            Today-5: {{curdate|date:'dd.MM.y-h.m.s'}}
+        </div>        
+    </body>
+</html>
+

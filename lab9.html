@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LAB9 PROGRAM</title>
+  <script type="text/javascript" src="https:\\ajax.googleapis.com\ajax\libs\angularjs\1.8.2\angular.min.js">
+        </script>
+        <script> 
+        var app=angular.module("myApp",[]);
+        app.controller("myCntrl",function($scope)
+        {
+            $scope.emplist=[{'name':'Thanu','salary':50000},
+                            {'name':'Arya','salary':40000},
+                            {'name':'Sri','salary':80000},
+                            {'name':'Chandu','salary':80000},
+                            {'name':'Kumar','salary':70000},
+                            {'name':'Anu','salary':60000},
+                            {'name':'Pramod','salary':30000},
+                            {'name':'Madhu','salary':90000},
+                            {'name':'Mohan','salary':20000},
+                            {'name':'Shiva','salary':100000}]
+
+            $scope.clearfilters=function()
+            {
+                $scope.searchname=""
+                $scope.searchsalary=""
+            }
+            });      
+        </script>
+    </head>
+    <body ng-app="myApp"> 
+        <h1>EMPLOYEE SEARCH APPLICATION</h1>
+        <div ng-controller="myCntrl">
+            Search Employee by Name:<input type="text" ng-model="searchname">
+            Search Employee by Salary:<input type="number" ng-model="searchsalary">
+            <button ng-click="clearfilters()">CLEAR FILTERS</button>
+            <h3>List of Employees</h3>
+            <table border="1">
+                <tr>
+                    <th>SL.NO.</th>
+                    <th>EMPLOYEE NAME</th>
+                    <th>SALARY</th>
+                </tr>
+                <tr ng-repeat="emp in emplist | filter:{name:searchname,salary:searchsalary}" >
+                    <td>{{$index+1}}</td>
+                    <td>{{emp.name}}</td>
+                    <td>{{emp.salary}}</td>
+                </tr>
+            </table>
+        </div>        
+    </body>
+</html>

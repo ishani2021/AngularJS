@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>ng click</title>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js">
+        </script>
+        <script>
+            var app=angular.module("myApp",[]);
+            app.controller("myCntrl",function($scope){
+                $scope.num1=20
+                $scope.num2=12
+                $scope.result
+
+                $scope.add=function()
+                {
+                    $scope.result=$scope.num1+$scope.num2
+                }
+            });
+        </script>
+    </head>
+    <body ng-app="myApp">
+        <div ng-controller="myCntrl">
+            Click the button to get the result
+            <button ng-click="add()">CLICK HERE</button> <br/>
+              Result : {{result}} 
+        </div>
+    </body>
+</html>

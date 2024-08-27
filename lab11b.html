@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LAB11a PROGRAM</title>
+        <script type="text/javascript" src="https:\\ajax.googleapis.com\ajax\libs\angularjs\1.8.2\angular.min.js">
+        </script>
+        <script> 
+        var app=angular.module("myApp",[]);             
+        app.controller("myCntrl",function($scope)
+        {
+            $scope.stud=['thanuja','chandu','mohana','arun','shiva']
+            $scope.upper=true
+            $scope.lower=false
+            
+            $scope.Lower=function()
+            { 
+                $scope.upper=false
+                $scope.lower=true
+            }
+            
+            $scope.Upper=function()
+            { 
+                $scope.upper=true
+                $scope.lower=false
+            }
+            });      
+        </script>
+    </head>
+    <body ng-app="myApp"> 
+        <h1>STUDENT DEATILS IN UPPERCASE</h1>
+        <div ng-controller="myCntrl">
+            <button ng-click="Upper()">UPPER</button>
+            <button ng-click="Lower()">LOWER</button>
+            <table border="1">
+                <tr>
+                    <th>SL.NO.</th>
+                    <th>NAME</th>
+                </tr>
+                <tr ng-repeat="std in stud">
+                    <td>{{$index+1}}</td>
+                    <td ng-show="upper">{{std|uppercase}}</td>
+                    <td ng-show="lower">{{std|lowercase}}</td>
+                </tr>
+            </table>
+        </div>        
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LAB11 PROGRAM</title>
+        <script type="text/javascript" src="https:\\ajax.googleapis.com\ajax\libs\angularjs\1.8.2\angular.min.js">
+        </script>
+        <script> 
+        var app=angular.module("myApp",[]); 
+        app.controller("myCntrl",function($scope)
+        {
+            $scope.stud=['thanuja','chandu','mohana','arun','shiva']
+        });      
+        </script>
+    </head>
+    <body ng-app="myApp"> 
+        <h1>STUDENT DEATILS IN UPPERCASE</h1>
+        <div ng-controller="myCntrl">
+            <table border="5">
+                <tr>
+                    <th>SL.NO.</th>
+                    <th>NAME</th>
+                </tr>
+                <tr ng-repeat="std in stud">
+                    <td>{{$index+1}}</td>
+                    <td>{{std | uppercase}}</td>
+                </tr>
+            </table>
+        </div>        
+    </body>
+</html>

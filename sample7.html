@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+            <title>SPLICE METHOD</title>
+    </head>
+    <body>
+        <h2>JavaScript Arrays</h2>
+        <p>The Array.splice() method adds and removes array elements:</p>
+        <p id="demo"></p>
+        <script type="text/javascript">
+        fruits = ["Banana", "Orange", "Apple", "Mango", "Kiwi"];
+        
+        // At position 2, remove 2 items: 
+            fruits.splice(2,2);
+        
+        // At position 2, add 2 elements: 
+            //fruits.splice(2, 0, "Lemon", "Berry");
+        
+            document.getElementById("demo").innerHTML = fruits;
+        </script>
+    </body>
+    </html>

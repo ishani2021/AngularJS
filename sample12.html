@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>  <title>DEMO ON LIST OF STUDENT OBJECTS </title>
+        <script type="text/javascript" src="https:\\ajax.googleapis.com\ajax\libs\angularjs\1.8.2\angular.min.js">
+        </script>
+        <script>
+            var app=angular.module("myApp",[]); 
+            app.controller("myCntrl",function($scope){
+            $scope.studlist=[
+             {'USN':'1BI21CS120','NAME':'RAM','DEPT':'CSE','SEMESTER':8,'MARKS':99},
+             {'USN':'1BI21CS121','NAME':'SHYAM','DEPT':'CSE','SEMESTER':7,'MARKS':90},
+             {'USN':'1BI21CS122','NAME':'ROHAN','DEPT':'CSE','SEMESTER':6,'MARKS':79},
+             {'USN':'1BI21CS123','NAME':'MOHAN','DEPT':'CSE','SEMESTER':5,'MARKS':90}]
+            });
+        </script>
+    </head>
+    <body ng-app="myApp"> 
+        <h1>STUDENT LIST</h1>
+        <div ng-controller="myCntrl">
+            <table border="1">
+                <tr> <th>USN</th> 
+		   <th>NAME</th>
+                    <th>DEPT</th>
+                    <th>SEM</th>
+                    <th>MARKS</th> </tr>
+                <tr ng-repeat="stu in studlist"> 
+                    <td>{{stu.USN}}</td>
+                    <td>{{stu.NAME}}</td>
+                    <td>{{stu.DEPT}}</td>
+                    <td>{{stu.SEMESTER}}</td>
+                    <td>{{stu.MARKS}}</td>
+                </tr>
+            </table>
+        </div>
+    </body>     </html>
